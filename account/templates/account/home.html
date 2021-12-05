@@ -1,129 +1,220 @@
 {% extends "base.html" %}
 {% load static %}
-{% load bootstrap3 %}
 
 {% block content %}
-  <h2 class="jumbotron" align="center">Hospital Management System</h2>
-    <br> 
-<style>
-    * {box-sizing: border-box;}
-    body {font-family: Verdana, sans-serif;}
-    .mySlides {display: none;}
-    img {vertical-align: middle;}
-    
-    /* Slideshow container */
-    .slideshow-container {
-      max-width: 1000px;
-      position: relative;
-      margin: auto;
-    }
-    
-    /* Caption text */
-    .text {
-      color: #f2f2f2;
-      font-size: 15px;
-      padding: 8px 12px;
-      position: absolute;
-      bottom: 8px;
-      width: 100%;
-      text-align: center;
-    }
-    
-    /* Number text (1/3 etc) */
-    .numbertext {
-      color: #f2f2f2;
-      font-size: 12px;
-      padding: 8px 12px;
-      position: absolute;
-      top: 0;
-    }
-    
-    /* The dots/bullets/indicators */
-    .dot {
-      height: 15px;
-      width: 15px;
-      margin: 0 2px;
-      background-color: #bbb;
-      border-radius: 50%;
-      display: inline-block;
-      transition: background-color 0.6s ease;
-    }
-    
-    .active {
-      background-color: #717171;
-    }
-    
-    /* Fading animation */
-    .fade {
-      -webkit-animation-name: fade;
-      -webkit-animation-duration: 1.5s;
-      animation-name: fade;
-      animation-duration: 1.5s;
-    }
-    
-    @-webkit-keyframes fade {
-      from {opacity: .4} 
-      to {opacity: 1}
-    }
-    
-    @keyframes fade {
-      from {opacity: .4} 
-      to {opacity: 1}
-    }
-    
-    /* On smaller screens, decrease text size */
-    @media only screen and (max-width: 300px) {
-      .text {font-size: 11px}
-    }
-    </style>
-    <div class="slideshow-container">
-    
-    <div class="mySlides fade">
-      <div class="numbertext">1 / 3</div>
-      <img src="{% static 'images/images.jpeg' %}" style="width:100%">
-      <div class="text">Care</div>
-    </div>
-    
-    <div class="mySlides fade">
-      <div class="numbertext">2 / 3</div>
-      <img src="{% static 'images/images2.jpeg' %}" style="width:100%">
-      <div class="text">Heal</div>
-    </div>
-    
-    <div class="mySlides fade">
-      <div class="numbertext">3 / 3</div>
-      <img src="{% static 'images/images3.jpeg' %}" style="width:100%">
-      <div class="text">Cure</div>
-    </div>
+<section class="home">
 
-    <br>
-    
-    <div style="text-align:center">
-      <span class="dot"></span> 
-      <span class="dot"></span> 
-      <span class="dot"></span> 
-    </div>
-    
-    <script>
-    var slideIndex = 0;
-    showSlides();
-    
-    function showSlides() {
-        var i;
-        var slides = document.getElementsByClassName("mySlides");
-        var dots = document.getElementsByClassName("dot");
-        for (i = 0; i < slides.length; i++) {
-           slides[i].style.display = "none";  
-        }
-        slideIndex++;
-        if (slideIndex > slides.length) {slideIndex = 1}    
-        for (i = 0; i < dots.length; i++) {
-            dots[i].className = dots[i].className.replace(" active", "");
-        }
-        slides[slideIndex-1].style.display = "block";  
-        dots[slideIndex-1].className += " active";
-        setTimeout(showSlides, 2000); // Change image every 2 seconds
-    }
-    </script>
-    
+  <div class="container">
+
+      <div class="row min-vh-100 align-items-center text-center text-md-left">
+
+          <div class="col-md-6 pr-md-5" data-aos="zoom-in">
+              <img src="{% static 'images/home-img.svg' %}" width="100%" alt="">
+          </div>
+
+          <div class="col-md-6 pl-md-5 content" data-aos="fade-left">
+              <h1><span>stay</span> safe, <span>stay</span> healthy.</h1>
+              <h3>caring for you.</h3>
+          </div>
+
+      </div>
+
+  </div>
+
+</section>
+
+<section class="Departments">
+  <h1 class="heading">Departments</h1>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-12">
+              <div class="depart_ment_tab mb-30">
+                  <ul class="nav" id="myTab" role="tablist">
+                      <li class="nav-item" data-aos="fade-in">
+                          <a class="nav-link active" id="home-tab" data-toggle="tab"  role="tab"
+                              aria-controls="home" aria-selected="true">
+                              <i class="fal fa-tooth"></i>
+                              <h4>Dentistry</h4>
+                          </a>
+                      </li>
+                      <li class="nav-item" data-aos="fade-in">
+                          <a class="nav-link" id="profile-tab" data-toggle="tab"  role="tab"
+                              aria-controls="profile" aria-selected="false">
+                              <i class="fal fa-heartbeat"></i>
+                              <h4>Cardiology</h4>
+                          </a>
+                      </li>
+                      <li class="nav-item" data-aos="fade-in">
+                          <a class="nav-link" id="contact-tab" data-toggle="tab"  role="tab"
+                              aria-controls="contact" aria-selected="false">
+                              <i class="fal fa-ear"></i>
+                              <h4>ENT Specialists</h4>
+                          </a>
+                      </li>
+                      <li class="nav-item" data-aos="fade-in">
+                          <a class="nav-link" id="Astrology-tab" data-toggle="tab"  role="tab"
+                              aria-controls="contact" aria-selected="false">
+                              <i class="fal fa-bone"></i>
+                              <h4>Astrology</h4>
+                          </a>
+                      </li>
+                      <li class="nav-item" data-aos="fade-in">
+                          <a class="nav-link" id="Neuroanatomy-tab" data-toggle="tab"  role="tab"
+                              aria-controls="contact" aria-selected="false">
+                              <i class="fal fa-lungs"></i>
+                              <h4>Neuroanatomy</h4>
+                          </a>
+                      </li>
+                      <li class="nav-item" data-aos="fade-in">
+                          <a class="nav-link" id="Blood-tab" data-toggle="tab" role="tab"
+                              aria-controls="contact" aria-selected="false">
+                              <i class="fal fa-virus"></i>
+                              <h4>Blood Screening</h4>
+                          </a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<section class="about">
+
+  <div class="container">
+      <h1 class="heading">Our Services</h1>
+
+      <div class="row min-vh-100 align-items-center">
+
+          <div class="col-md-6 content" data-aos="fade-right">
+
+              <div class="box">
+                  <h3> <i class="fas fa-ambulance"></i> ambulance services </h3>
+                  <p>24 X 7 Ambulance Services over 30 cities all across india</p>
+              </div>
+
+              <div class="box">
+                  <h3> <i class="fas fa-procedures"></i> emergency rooms </h3>
+                  <p>AC Emergency Rooms For Patients and doctors</p>
+              </div>
+
+              <div class="box">
+                  <h3> <i class="fas fa-stethoscope"></i>check-ups </h3>
+                  <p>Hassels Free CheckUps by using online Payments</p>
+              </div>
+
+          </div>
+
+          <div class="col-md-6 d-none d-md-block" data-aos="fade-left">
+              <img src="{% static 'images/about-img.svg' %}" width="100%" alt="">
+          </div>
+
+      </div>
+
+  </div>
+
+</section>
+
+<section class="facility">
+
+  <div class="container">
+
+  <h1 class="heading">our facilities</h1>
+
+  <div class="box-container">
+
+      <div class="box" data-aos="zoom-in">
+          <a href="{% static 'images/img1.jpg' %}" title="General Ward">
+              <img src="{% static 'images/img1.jpg' %}" alt="">
+          </a>
+      </div>
+
+      <div class="box" data-aos="zoom-in">
+          <a href="{% static 'images/img2.jpg' %}" title="ICU Cabin">
+              <img src="{% static 'images/img2.jpg' %}" alt="">
+          </a>
+      </div>
+
+      <div class="box" data-aos="zoom-in">
+          <a href="{% static 'images/img3.jpg' %}" title="Covid Vaccination">
+              <img src="{% static 'images/img3.jpg' %}" alt="">
+          </a>
+      </div>
+
+      <div class="box" data-aos="zoom-in">
+          <a href="{% static 'images/img4.jpg' %}" title="MRI Section">
+              <img src="{% static 'images/img4.jpg' %}" alt="">
+          </a>
+      </div>
+
+      <div class="box" data-aos="zoom-in">
+          <a href="{% static 'images/img5.jpg' %}" title="Operation Theater">
+              <img src="{% static 'images/img5.jpg' %}" alt="">
+          </a>
+      </div>
+
+      <div class="box" data-aos="zoom-in">
+          <a href="{% static 'images/img6.jpg' %}" title="Ambulance Facility">
+              <img src="{% static 'images/img6.jpg' %}" alt="">
+          </a>
+      </div>
+
+  </div>
+
+  </div>
+
+</section>
+
+<section class="feature-area">
+  <h1 class="heading" style="margin-bottom: 20px">Specialists</h1>
+  <div class="container">
+      <div class="row">
+          <div class="col-lg-3 col-md-6" data-aos="fade-up">
+              <div class="single-feature text-center item-padding">
+                  <img src="{% static 'images/feature1.png' %}" alt="" />
+                  <p class="my-text">advance technology</p>
+                  <p class="my-text--1 pt-3">HighTech technology for prescreptions Of medicines, best checkup is done by hospital</p>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up">
+              <div class="single-feature text-center item-padding mt-4 mt-md-0">
+                  <img src="{% static 'images/feature2.png' %}" alt="" />
+                  <p class="my-text">Low Costs Medicines</p>
+                  <p class="my-text--1 pt-3">With the Aim of People Supports we mainly use India Pharamas Medicines</p>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up">
+              <div class="single-feature text-center item-padding mt-4 mt-lg-0">
+                  <img src="{% static 'images/feature4.png' %}" alt="" />
+                  <p class="my-text">friendly staff</p>
+                  <p class="my-text--1 pt-3">All Staffs are friendly And they support our moto and cares all the patients</p>
+              </div>
+          </div>
+          <div class="col-lg-3 col-md-6" data-aos="fade-up">
+              <div class="single-feature text-center item-padding mt-4 mt-lg-0">
+                  <img src="{% static 'images/feature3.png' %}" alt="" />
+                  <p class="my-text">quality equipment</p>
+                  <p class="my-text--1 pt-3">Quality equipment used for diagnostic of patients</p>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<footer data-aos="fade-down">
+  <div class="footer-content">
+      <h1>Hospital Management</h1>
+      <p>To ensure accessible and affordable quality healthcare by compassionate medical professionals to all. To be the centre of excellence for medical research and academics. To cultivate an environment of trust, honesty, mutual respect, equality, and ethics.</p>
+      <ul class="socials">
+          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+      </ul>
+  </div>
+  <div class="footer-bottom">
+      <p>copyright &copy;2021 Hospital team. designed by Manish, Jayesh & Jigar</p>
+  </div>
+</footer>
 {% endblock %}
