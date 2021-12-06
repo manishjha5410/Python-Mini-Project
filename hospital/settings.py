@@ -31,6 +31,9 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
+# [04/12 12:34] Manish jha manishjha5410:- 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
+
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
