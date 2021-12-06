@@ -35,6 +35,7 @@ venv/
 develop-eggs/ 
 dist/ 
 downloads/ 
+/staticfiles
 eggs/ 
 .eggs/ 
 lib/ 
