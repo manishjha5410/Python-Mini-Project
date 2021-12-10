@@ -1,56 +1,59 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-<div class="jumbotron">
-  <h1 align="center">My Hospital</h1>
 
-  <div class="about-section">
-    <h1>About Us Page</h1>
-    <p>Some text about who we are and what we do.</p>
-    <p>Resize the browser window to see that this page is responsive by the way.</p>
+<section class="about-us">
+  <h1>about us</h1>
+  <div class="container about-main"  data-aos="fade-in">
+
+    <div data-aos="fade-left">
+      <h2 class="cont-head">
+        Who We Are
+      </h2>
+      <p class="about--p">
+        <strong>HealthCare</strong> is one of India’s largest healthcare organizations. We operate 17 healthcare facilities (3400+ beds) across the NCR Delhi, Haryana, Punjab, Uttarakhand and Maharashtra. Almost 85% of our bed capacity is in Metro/Tier 1 cities. Apart from hospitals, <strong>HealthCare</strong> also operates a homecare business and pathology business under brand names @Home and  Labs respectively.  @Home offers health and wellness services at home while  Lab provides Pathology Services outside our hospital network.
+      </p>
+    </div>
+
+    <div data-aos="fade-right">
+      <h3 class="cont-head">
+        We're Different than others
+      </h3>
+      <p class="about--p">
+        At <strong>HealthCare</strong> you can get a variety of facilities that are listed in our main page that can be used to better diagnose and it is better than most of private hospital in india at a lower cost.
+      </p>
+    </div>
+
+    <div data-aos="fade-left">
+      <h3 class="cont-head">
+        Present Status
+      </h3>
+      <p class="about--p">
+        <strong>HealthCare</strong> is promoted and led by Manish Jha as its Chairman and Managing director and co- promoted by KKR, the iconic Global Private equity fund.
+      </p>
+      <p class="about--p">
+        The present amalgamated company was formed subsequent to the acquisition of 49.7% stake in erstwhile  Healthcare Institute Limited by Radiant Life Care Pvt. Ltd. ( “Radiant”) and the amalgamation of Max Healthcare with Radiant thereafter.  The amalgamated entity assumed the name Max Healthcare Institute limited.
+        Prior to the amalgamation, Radiant  was led and promoted by manish Jha.
+      </p>
+    </div>
+
   </div>
+</section>
 
-  <h2 style="text-align:center">Our Team</h2>
-  <div class="row">
-    <div class="column">
-      <div class="card">
-        <img src="{% static 'images/team1.jpg' %}" alt="Jane" style="width:100%">
-        <div class="container">
-          <h2>Jane Doe</h2>
-          <p class="title">CEO & Founder</p>
-          <p>Young and Dashing</p>
-          <p>jane@example.com</p>
-          <p><button class="button">Contact</button></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="card">
-        <img src="{% static 'images/team2.jpg' %}" alt="Mike" style="width:100%">
-        <div class="container">
-          <h2>Mike Ross</h2>
-          <p class="title">Art Director</p>
-          <p>Art at it's Best</p>
-          <p>mike@example.com</p>
-          <p><button class="button">Contact</button></p>
-        </div>
-      </div>
-    </div>
-
-    <div class="column">
-      <div class="card">
-        <img src="{% static 'images/team3.jpg' %}" alt="John" style="width:100%">
-        <div class="container">
-          <h2>John Doe</h2>
-          <p class="title">Designer</p>
-          <p>Discipline and motivated</p>
-          <p>john@example.com</p>
-          <p><button class="button">Contact</button></p>
-        </div>
-      </div>
-    </div>
+<footer data-aos="fade-down">
+  <div class="footer-content">
+      <h1>Hospital Management</h1>
+      <p>To ensure accessible and affordable quality healthcare by compassionate medical professionals to all. To be the centre of excellence for medical research and academics. To cultivate an environment of trust, honesty, mutual respect, equality, and ethics.</p>
+      <ul class="socials">
+          <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+          <li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+          <li><a href="#"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
+      </ul>
   </div>
-</div>
-
+  <div class="footer-bottom">
+      <p>copyright &copy;2021 Hospital team. designed by Manish, Jayesh & Jigar</p>
+  </div>
+</footer>
 {% endblock %}

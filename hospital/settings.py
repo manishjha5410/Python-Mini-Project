@@ -129,5 +129,7 @@ LOGIN_REDIRECT_URL = "account:home"
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR,]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
 
 django_heroku.settings(locals())
