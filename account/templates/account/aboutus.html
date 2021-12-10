@@ -1,15 +1,56 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 <div class="jumbotron">
-<h1 align="center">My Hospital</h1>
-<style>
-  p.c {
-    font-style: oblique;
-  }
-</style>
-<h4 align="right" class="c">"We care to cure you."</h4>
+  <h1 align="center">My Hospital</h1>
 
-    <p> About Us Page..</p>
+  <div class="about-section">
+    <h1>About Us Page</h1>
+    <p>Some text about who we are and what we do.</p>
+    <p>Resize the browser window to see that this page is responsive by the way.</p>
+  </div>
+
+  <h2 style="text-align:center">Our Team</h2>
+  <div class="row">
+    <div class="column">
+      <div class="card">
+        <img src="{% static 'images/team1.jpg' %}" alt="Jane" style="width:100%">
+        <div class="container">
+          <h2>Jane Doe</h2>
+          <p class="title">CEO & Founder</p>
+          <p>Young and Dashing</p>
+          <p>jane@example.com</p>
+          <p><button class="button">Contact</button></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="{% static 'images/team2.jpg' %}" alt="Mike" style="width:100%">
+        <div class="container">
+          <h2>Mike Ross</h2>
+          <p class="title">Art Director</p>
+          <p>Art at it's Best</p>
+          <p>mike@example.com</p>
+          <p><button class="button">Contact</button></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="column">
+      <div class="card">
+        <img src="{% static 'images/team3.jpg' %}" alt="John" style="width:100%">
+        <div class="container">
+          <h2>John Doe</h2>
+          <p class="title">Designer</p>
+          <p>Discipline and motivated</p>
+          <p>john@example.com</p>
+          <p><button class="button">Contact</button></p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 {% endblock %}
