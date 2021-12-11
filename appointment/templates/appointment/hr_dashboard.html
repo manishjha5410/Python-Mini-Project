@@ -1,29 +1,28 @@
 {% extends "base.html" %}
 
-{% load bootstrap3 %}
-
 {% block content %}
-<div class="container">
-    <h1 align="center">Dashboard</h1>
-    <br>
-    <ul class="list-group">
-        <li class="list-group-item">
-            <strong>Total Doctors</strong> - {{ totalDoc }}
-        </li>
-        <li class="list-group-item">
-            <strong>Total Patients</strong> - {{ totalPat }}
-        </li>
-        <li class="list-group-item">
-            <strong>On Duty Doctors</strong> - {{ ondutyDoc }}
-        </li>  
-    </ul>
+<div class="container" >
+    <h1 align="center" style="background-color:#0188DF" >Dashboard</h1>
+    <center>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <strong>Total Doctors</strong> - {{ totalDoc }}
+            </li>
+            <li class="list-group-item">
+                <strong>Total Patients</strong> - {{ totalPat }}
+            </li>
+            <li class="list-group-item">
+                <strong>On Duty Doctors</strong> - {{ ondutyDoc }}
+            </li>
+        </ul>
+    </center>
 </div>
-<div class="row">
+<div class="row" style="padding: 10px;">
     <div class="col-md-12">
         <h3>Doctors</h3>
         <div class="card card-body">
             <table class="table table-striped">
-                <thead> 
+                <thead style="background-color:#0188DF; color:white">
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Email</th>
@@ -47,8 +46,10 @@
                     <td>{{ obj.department }}</td>
                     <td>{{ obj.attendance }}</td>
                     <td>{{ obj.salary }}</td>
-                    <td><a href="{% url 'user_profile:doc-profile-pk' pk=obj.user.id %}"><button class="btn btn-warning">Update</button></a></td>
-                    <td><a href="{% url 'user_profile:doc-profile-delete' pk=obj.user.id %}"><button class="btn btn-danger">Delete</button></a></td>
+                    <td><a href="{% url 'user_profile:doc-profile-pk' pk=obj.user.id %}"><button
+                                class="btn" style="background-color:#0188DF;color:white">Update</button></a></td>
+                    <td><a href="{% url 'user_profile:doc-profile-delete' pk=obj.user.id %}"><button
+                                class="btn btn-danger">Delete</button></a></td>
                 </tr>
                 {% endfor %}
             </table>

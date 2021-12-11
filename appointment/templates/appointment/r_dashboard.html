@@ -1,28 +1,28 @@
 {% extends "base.html" %}
 
-{% load bootstrap3 %}
-
 {% block content %}
 <div class="container">
-    <h1 align="center">Dashboard</h1>
-    <br>
-    <ul class="list-group">
-        <li class="list-group-item">
-            <strong>Total Appointments</strong> - {{ totalApp }}
-        </li>
-        <li class="list-group-item">
-            <strong>Appointments Done</strong> - {{ compApp }}
-        </li>
-        <li class="list-group-item">
-            <strong>Upcoming Appointments</strong> - {{ pendApp }}
-        </li>  
-    </ul>
+    <h1 align="center" style="background-color:#0188DF">Dashboard</h1>
+    <center>
+        <ul class="list-group">
+            <li class="list-group-item">
+                <strong>Total Appointments</strong> - {{ totalApp }}
+            </li>
+            <li class="list-group-item">
+                <strong>Appointments Done</strong> - {{ compApp }}
+            </li>
+            <li class="list-group-item">
+                <strong>Upcoming Appointments</strong> - {{ pendApp }}
+            </li>
+        </ul>
+    </center>
 </div>
-<div class="row">
-    <div class="col-md-5">
-        <h3>Appointments -</h3>
+<div class="row" style="padding: 10px;">
+    <div class="col-12">
+        <h3>Appointments</h3>
         <div class="card card-body">
-            <a href="{% url 'appointment:appointment-create' %}"><button class="btn btn-primary">Create Appointment</button></a>
+            <a href="{% url 'appointment:appointment-create' %}"><button class="btn btn-primary" style="color: black;">Create
+                    Appointment</button></a>
             <table class="table table-striped">
                 <thead>
                     <th>Date</th>
@@ -44,12 +44,13 @@
         </div>
     </div>
     <br>
-    <div class="col-md-7">
-        <h3>Last 5 Patients -</h3>
+    <div class="col-12">
+        <h3>Last 5 Patients</h3>
         <div class="card card-body">
-            <a href="{% url 'user_profile:profile-create' %}"><button class="btn btn-primary">Create Patient</button></a>
+            <a href="{% url 'user_profile:profile-create' %}"><button class="btn btn-primary" style="color: black;">Create
+                    Patient</button></a>
             <table class="table table-striped">
-                <thead> 
+                <thead>
                     <th>Name</th>
                     <th>Phone</th>
                     <th>Email</th>
@@ -65,8 +66,10 @@
                     <td>{{ obj.email }}</td>
                     <td>{{ obj.gender }}</td>
                     <td>{{ obj.age }}</td>
-                    <td><a href="{% url 'user_profile:profile-pk' pk=obj.user.id %}"><button class="btn btn-warning">Update</button></a></td>
-                    <td><a href="{% url 'user_profile:profile-delete' pk=obj.user.id %}"><button class="btn btn-danger">Delete</button></a></td>
+                    <td><a href="{% url 'user_profile:profile-pk' pk=obj.user.id %}"><button
+                        class="btn" style="background-color:#0188DF;color:white">Update</button></a></td>
+                    <td><a href="{% url 'user_profile:profile-delete' pk=obj.user.id %}"><button
+                                class="btn btn-danger">Delete</button></a></td>
                 </tr>
                 {% endfor %}
             </table>
