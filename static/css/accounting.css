@@ -1,0 +1,15 @@
+.accounting {
+  margin-top: 10px;
+}
+
+.accounting h1 {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+
+@media (max-width: 992px) {
+    .accounting {
+        margin-top: 8rem;
+    }
+}

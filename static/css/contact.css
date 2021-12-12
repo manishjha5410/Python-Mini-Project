@@ -3,6 +3,11 @@
   text-align: center;
 }
 
+.contact-us h1
+{
+  text-transform: capitalize;
+}
+
 .form-cont{
   box-shadow: 0 2px 15px 0px rgb(0 0 0 / 15%);
   margin-top: 50px;
@@ -15,7 +20,7 @@
 
 .contactForm .label {
   color: #000;
-  text-transform: uppercase;
+  text-transform: capitalize;
   font-size: 15px;
   margin-left: 3px;
   width: 100%;

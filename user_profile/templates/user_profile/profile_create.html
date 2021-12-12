@@ -1,13 +1,83 @@
 {% extends "base.html" %}
 {% load bootstrap3 %}
-
-
 {% block content %}
-<div class="container">
-    <form method="POST">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <input type="submit" value="Create" class="btn btn-default">
-    </form>
-</div>
+
+<section class="appointment">
+    <h1>Hello {{ user.username }}</h1>
+
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="control-label" for="id_name">Name</label>
+                <input type="text" name="name" value="{{ user.first_name }} {{ user.last_name }}" maxlength="50" class="form-control" placeholder="Name" title="" required="" id="id_name">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_phone">Phone</label>
+                <input type="text" name="phone" maxlength="17" class="form-control" placeholder="Phone" title="" id="id_phone">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_email">Email</label>
+                <input type="email" value = {{ user.email }} name="email" maxlength="254" class="form-control" placeholder="Email" title="" id="id_email">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_gender_0">Gender</label>
+                <div id="id_gender_type">
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" type="radio" name="gender" value="M" class="" title="" required="" style="border: 1px solid rgba(0,0,0,.25) !important;" id="id_gender_type_0" checked/>
+                        <label class="form-check-label" for="id_gender_0">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" type="radio" name="gender"  value="F" class="" title="" required="" style="border: 1px solid rgba(0,0,0,.25) !important;" id="id_gender_1" />
+                        <label class="form-check-label" for="id_gender_1">
+                            Female
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="radio" class="form-check-input" type="radio" name="gender"  value="O" class="" title="" required="" style="border: 1px solid rgba(0,0,0,.25) !important;" id="id_gender_2" />
+                        <label class="form-check-label" for="id_gender_2">
+                            Other
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_age">Age</label>
+                <input type="number" name="age" class="form-control" placeholder="Age" title="" id="id_age">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_address">Address</label>
+                <input type="text" name="address" maxlength="500" class="form-control" placeholder="Address" title="" id="id_address">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_blood_group">Blood group</label>
+                <select name="blood_group" class="form-select" aria-label="Select Blood group" title="" id="id_blood_group">
+                    <option value="" selected="">Select One</option>
+                    <option value="O-">O-</option>
+                    <option value="O+">O+</option>
+                    <option value="A-">A-</option>
+                    <option value="A+">A+</option>
+                    <option value="B-">B-</option>
+                    <option value="B+">B+</option>
+                    <option value="AB-">AB-</option>
+                    <option value="AB+">AB+</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <div class="custom-file">
+                    <label class="control-label form-label" for="id_med_reps">Med reps</label>
+                    <input type="file" class="form-control" name="med_reps" id="id_med_reps" autocompleted="">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_case_paper">Case paper</label>
+                <input type="number" name="case_paper" class="form-control" placeholder="Case paper" title="" id="id_case_paper">
+            </div>
+            <input type="submit" value="Update" class="sgn--btn btn">
+        </form>
+    </div>
+</section>
+
 {% endblock %}

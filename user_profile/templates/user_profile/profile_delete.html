@@ -3,16 +3,21 @@
 
 
 {% block content %}
-<div class="container">
-    <h2>Are you sure you want to delete {{ user.username }} profile?</h2>
-    <div class="col-md-1">
-        <a href="{% url 'appointment:r_dashboard' %}"><button class="btn btn-warning">Cancel</button></a>
+<div class="container" style="margin-top: 6rem">
+    <div class="card">
+        <div class="card-header">
+            User Option
+        </div>
+        <div class="card-body">
+            <h2 class="card-title" style="text-align: center;">Are you sure you want to delete {{ user.username }} profile?</h2>
+            <form method="POST" style="display: flex;align-items: center;justify-content: space-evenly;margin-top: 2rem;">
+                <a href="{% url 'appointment:r_dashboard' %}" class="btn btn-warning">
+                    Cancel
+                </a>
+                {% csrf_token %}
+                <input type="submit" value="Delete" class="btn btn-danger">
+            </form>
+        </div>
     </div>
-    <div class="col-md-1">
-        <form method="POST">
-            {% csrf_token %}
-        <input type="submit" value="Delete" class="btn btn-danger">
-        </form>
-    </div>   
 </div>
 {% endblock %}

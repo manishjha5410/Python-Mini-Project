@@ -3,52 +3,44 @@
 {% load bootstrap3 %}
 
 {% block content %}
-<div class="row">
-    <div class="col-md-5">
-        <h3>Individuals' Outstandings</h3>
-        <div class="card card-body">
-            <table class="table table-striped">
-                <thead> 
-                    <th>Patient</th>
-                    <th>Outstanding</th>
-                    <th>Paid</th>
-                    <th>Reminder</th>
-                </thead>
-                {% for obj in payment_ind %}
-                <tr>
-                    <td>{{ obj.patient }}</td>
-                    <td>{{ obj.outstanding }}</td>
-                    <td>{{ obj.paid }}</td>
-                    <td><button class="btn btn-primary">Set Reminder</button></td>
-                </tr>
-                {% endfor %}
-            </table>
-        </div>
+<section class="accounting">
+    <h1>Individuals Outstandings</h1>
+    <div class="container" style="margin-bottom: 2rem">
+            <table class="table table-striped table-hover table-respes">
+            <thead>
+                <th scope="col">Patient</th>
+                <th scope="col">Outstanding</th>
+                <th scope="col">Paid</th>
+            </thead>
+            {% for obj in payment_ind %}
+            <tr>
+                <td data-label="Patient">{{ obj.patient }}</td>
+                <td data-label="Outstanding">{{ obj.outstanding }}</td>
+                <td data-label="Paid">{{ obj.paid }}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
-    <div class="col-md-7">
-        <h3>Consultings' Outstandings</h3>
-        <div class="card card-body">
-            <table class="table table-striped">
-                <thead> 
-                    <th>Date</th>
-                    <th>Patient Name</th>
-                    <th>Paid</th>
-                    <th>Outstanding</th>
-                    <th>Total</th>
-                    <th>Invoice</th>
-                </thead>
-                {% for obj in payment_cons %}
-                <tr>
-                    <td>{{ obj.date }}</td>
-                    <td>{{ obj.patient }}</td>
-                    <td>{{ obj.paid }}</td>
-                    <td>{{ obj.outstanding }}</td>
-                    <td>{{ obj.total }}</td>
-                    <td><a href="">Open Invoice</a></td>
-                </tr>
-                {% endfor %}
-            </table>
-        </div>
+    <h1>Consultings Outstandings</h1>
+    <div class="container">
+        <table class="table table-striped table-hover table-respes">
+            <thead>
+                <th scope="col">Date</th>
+                <th scope="col">Patient Name</th>
+                <th scope="col">Paid</th>
+                <th scope="col">Outstanding</th>
+                <th scope="col">Total</th>
+            </thead>
+            {% for obj in payment_cons %}
+            <tr>
+                <td data-label="Date">{{ obj.date }}</td>
+                <td data-label="Patient Name">{{ obj.patient }}</td>
+                <td data-label="Paid">{{ obj.paid }}</td>
+                <td data-label="Outstanding">{{ obj.outstanding }}</td>
+                <td data-label="Total">{{ obj.total }}</td>
+            </tr>
+            {% endfor %}
+        </table>
     </div>
-</div>
+</section>
 {% endblock %}

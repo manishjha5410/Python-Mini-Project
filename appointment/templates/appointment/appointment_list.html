@@ -3,43 +3,45 @@
 
 
 {% block content %}
-<div class="container">
-    <h2>Your Appointments</h2>
-    <div>
-        {% if user.is_patient %}
-        <table class="table table-striped">
-            <thead>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Consulting Doctor</th>
-                <th>Status</th>
-            </thead>
-            {% for obj in object_list %}
-            <tr>
-                <td>{{ obj.date }}</td>
-                <td>{{ obj.time }}</td>
-                <td>{{ obj.doctor }}</td>
-                <td>{{ obj.status }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-        {% endif %}
-        {% if user.is_doctor %}
-        <table class="table table-striped">
-            <thead>
-                <th>Date</th>
-                <th>Time</th>
-                <th>Patient Info</th>
-            </thead>
-            {% for obj in object_list %}
-            <tr>
-                <td>{{ obj.date }}</td>
-                <td>{{ obj.time }}</td>
-                <td>{{ obj.patient }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-        {% endif %}
-    </div>  
-</div>
+<section class="appointment res-sec">
+    <h1>Your Appointments</h1>
+    <div class="container">
+        <div>
+            {% if user.is_patient %}
+            <table class="table table-striped table-hover table-respes">
+                <thead>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Consulting Doctor</th>
+                    <th scope="col">Status</th>
+                </thead>
+                {% for obj in object_list %}
+                <tr>
+                    <td data-label="Date">{{ obj.date }}</td>
+                    <td data-label="Time">{{ obj.time }}</td>
+                    <td data-label="Doctor">{{ obj.doctor }}</td>
+                    <td data-label="Status">{{ obj.status }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+            {% if user.is_doctor %}
+            <table class="table table-striped table-hover table-respes">
+                <thead>
+                    <th scope="col">Date</th>
+                    <th scope="col">Time</th>
+                    <th scope="col">Patient Info</th>
+                </thead>
+                {% for obj in object_list %}
+                <tr>
+                    <td data-label="Date">{{ obj.date }}</td>
+                    <td data-label="Time">{{ obj.time }}</td>
+                    <td data-label="Patient Info">{{ obj.patient }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+            {% endif %}
+        </div>  
+    </div>
+</section>
 {% endblock %}

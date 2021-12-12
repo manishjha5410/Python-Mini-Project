@@ -5,34 +5,58 @@
     <h1>contact us</h1>
     <div class="container form-cont" data-aos="fade-in">
         <div class="row" style="flex-direction: row-reverse;">
-            <div class="col-md-4">
+            <div class="col-md-4" style="display: flex">
                 <img src="{% static 'images/cont-us-icon.svg' %}" alt="">
             </div>
             <div class="col-md-8">
-                <form method="POST" id="contactForm" name="contactForm" class="contactForm" novalidate="novalidate">
+                <form id="contactForm" name="contactForm" class="contactForm needs-validation" novalidate>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="label" for="name">Full Name</label>
-                                <input type="text" class="form-control error" name="name" id="name" placeholder="Name" aria-invalid="true">
+                                <input type="text" class="form-control" name="name" id="name" placeholder="Name" aria-invalid="true" required>
+                                <div class="valid-feedback form--feed">
+                                    Name is Valid
+                                </div>
+                                <div class="invalid-feedback form--feed">
+                                    Please choose a name
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
                                 <label class="label" for="email">Email Address</label>
-                                <input type="email" class="form-control error" name="email" id="email" placeholder="Email" aria-invalid="true" required>
+                                <input type="email" class="form-control" name="email" id="email" placeholder="Email" aria-invalid="true" required>
+                                <div class="valid-feedback form--feed">
+                                    Email is Valid
+                                </div>
+                                <div class="invalid-feedback form--feed">
+                                    Email is inValid
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="label" for="subject">Subject</label>
-                                <input type="text" class="form-control error" name="subject" id="subject" placeholder="Subject" aria-invalid="true" required>
+                                <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" aria-invalid="true" required>
+                                <div class="valid-feedback form--feed">
+                                    Enter a subject
+                                </div>
+                                <div class="invalid-feedback form--feed">
+                                    Subject is Valid
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12">
                             <div class="form-group">
                                 <label class="label" for="#">Message</label>
-                                <textarea name="message" class="form-control error" id="message" cols="30" rows="4"  placeholder="Message"></textarea>
+                                <textarea name="message" style="height: 6rem" class="form-control" id="message" cols="30" rows="4"  placeholder="Message" required></textarea>
+                                <div class="valid-feedback form--feed">
+                                    Message is Proper
+                                </div>
+                                <div class="invalid-feedback form--feed">
+                                    Please enter a message
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-12">

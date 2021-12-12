@@ -1,0 +1,26 @@
+.thank-you{
+    margin-top: 4rem;
+}
+
+.thank-you h1{
+    text-align: center;
+    margin-bottom: 50px;
+    text-transform: capitalize;
+}
+
+.thanks--main-content{
+    text-align: center;
+}
+
+.main-content__checkmark {
+    font-size: 4rem;
+    line-height: 1;
+    color: #0188df;
+}
+
+@media (max-width: 768px)
+{
+    .main-content__checkmark {
+    font-size: 5rem;
+    }
+}

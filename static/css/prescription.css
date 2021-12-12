@@ -1,0 +1,85 @@
+.prescription {
+  margin-top: 2rem;
+}
+
+.prescription h1 {
+  text-align: center;
+  text-transform: capitalize;
+}
+
+.page-contain {
+  padding: 2rem;
+}
+
+.data-card {
+  width: 100%;
+  border-radius: 10px;
+  text-decoration: none;
+  background: white;
+  margin: 1rem;
+  padding: 1rem 2rem;
+  box-shadow: -1px 0em 2.5em -0.5em rgb(0 0 0 / 10%);
+  transition: transform 0.45s ease, background 0.45s ease;
+}
+
+.data-card h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1;
+  padding-bottom: 0.7rem;
+  margin: 0 0 0.2rem;
+  border-bottom: 2px solid #24c0f1;
+  transition: color 0.45s ease, border 0.45s ease;
+}
+
+.data-card h4 {
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  margin-top: 20px;
+  font-weight: 400;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  margin-bottom: 1.777777778em;
+  transition: color 0.45s ease;
+}
+
+.data-card p {
+  font-weight: 400;
+  line-height: 1.8;
+  margin: 0 0 1.25em;
+  transform: translateY(-0.5em);
+  transition: opacity 0.45s ease, transform 0.5s ease;
+}
+
+.data-card:hover {
+  background: #4c9afe;
+  transform: scale(1.02);
+}
+
+.data-card:hover h3 {
+  color: #fff;
+  border-bottom-color: white;
+}
+
+.data-card:hover h4 {
+  color: #fff;
+}
+
+.data-card:hover p {
+  color: #fff;
+  transform: none;
+}
+
+
+/* -------------------- */
+
+.create-prescrip{
+    margin-top: 2rem;
+}
+
+.create-prescrip h1{
+    text-align: center;
+    text-transform: capitalize;
+}
+
+/* -------------------- */

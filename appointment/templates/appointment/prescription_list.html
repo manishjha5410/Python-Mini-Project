@@ -1,35 +1,45 @@
 {% extends "base.html" %}
-{% load bootstrap3 %}
 
 {% block content %}
-<div class="container">
+
+<section class="prescription">
+
     {% if user.is_patient %}
-    <h2>Your Medical History</h2>
-    <br>
-    <ul class="list-group">
-        {% for obj in object_list %}
-        <li class="list-group-item">
-            <h3><strong>{{ obj.date }}</strong></h3>
-            <p>Symptoms - {{ obj.symptoms }}</p>
-            <p>Prescription - {{ obj.prescription }}</p>
-            <button class="btn btn-primary">Learn More</button>
-        </li>
-        {% endfor %}
+        <h1>Your Medical History</h1>
     {% endif %}
     {% if user.is_doctor %}
-    <h2>Your Prescriptions</h2>
-    <a href="{% url 'appointment:doc-prescriptions-create' %}"><button class="btn btn-primary pull-right">Create New Prescription</button></a>
-    <br> <br>
-    <ul class="list-group">
-        {% for obj in object_list %}
-        <li class="list-group-item">
-            <h3><strong>{{ obj.date }}</strong></h3>
-            <p>Symptoms - {{ obj.symptoms }}</p>
-            <p>Prescription - {{ obj.prescription }}</p>
-            <p>Patient Name - {{ obj.patient }}</p>
-        </li>
-        {% endfor %}
+        <h1>Your Prescriptions</h1>
     {% endif %}
-    </ul>
-</div>
+
+    <div class="container">
+        {% if user.is_patient %}
+        <div class="page-contain">
+            {% for obj in object_list %}
+            <div class="data-card">
+                <h3>{{ obj.date }}</h3>
+                <h4>Patient Name - {{ obj.patient }}</h4>
+                <p>Symptoms - {{ obj.symptoms }}</p>
+                <p>Prescription - {{ obj.prescription }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% if user.is_doctor %}
+        <a class="btn btn-primary pull-right" href="{% url 'appointment:doc-prescriptions-create' %}">
+            Create New Prescription
+        </a>
+        <div class="page-contain">
+            {% for obj in object_list %}
+            <div class="data-card">
+                <h3>{{ obj.date }}</h3>
+                <h4>Patient Name - {{ obj.patient }}</h4>
+                <p>Symptoms - {{ obj.symptoms }}</p>
+                <p>Prescription - {{ obj.prescription }}</p>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+
+</section>
 {% endblock %}

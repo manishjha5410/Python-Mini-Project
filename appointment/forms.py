@@ -9,6 +9,7 @@ class PrescriptionForm(forms.ModelForm):
         model = Prescription
         fields = ('patient', 'symptoms', 'prescription')
 
+
     def __init__(self, *args, **kwargs):
         super(PrescriptionForm, self).__init__(*args, **kwargs)
         if self.instance:

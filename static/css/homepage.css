@@ -7,14 +7,9 @@
 
 *{
   font-family: 'Roboto', sans-serif;
-  margin:0; padding:0;
+  margin:0;
+  padding:0;
   box-sizing: border-box;
-  border:none !important;
-  outline: none !important;
-  text-decoration: none !important;
-  text-transform: capitalize;
-  font-weight: 400;
-  transition: all .2s linear;
 }
 
 *::selection{
@@ -87,6 +82,7 @@
    margin-bottom: 30px;
   justify-content: space-between;
 }
+
 
  .depart_ment_tab .nav li {
   -webkit-box-flex: 14.4%;
@@ -294,6 +290,7 @@ header{
 .header-active{
   position: fixed;
   background:#fff;
+  top: 0;
   box-shadow: 7px 0rem 0.3rem rgb(0 0 0 / 30%);
   padding: .5rem 1rem;
 }
@@ -346,11 +343,12 @@ header{
   color:var(--blue) !important;
   cursor: pointer;
 }
-
+/* ------------------------- */
 
 .home .content h1{
   font-size: 3rem;
   color:var(--black);
+  text-transform: capitalize;
 }
 
 .home .content h1 span{
@@ -388,6 +386,10 @@ header{
   min-height: 100vh;
 }
 
+.facility h1{
+  text-transform: capitalize;
+}
+
 .facility .box-container{
   display: flex;
   justify-content: center;
@@ -405,7 +407,12 @@ header{
 .facility .box-container .box img{
   height:100%;
   width:100%;
+  transition: all .3s;
   object-fit: cover;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -ms-transition: all .3s;
+  -o-transition: all .3s;
 }
 
 .facility .box-container .box:hover img{
