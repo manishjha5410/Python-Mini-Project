@@ -15,6 +15,6 @@ password:- cXxBVKkk.CL2p3J
 
 Receptionalist:-
 username:- beta
-password:- W5R3qR.CauLSJL6a
+password:- W5R3qR.CauLSJL6
 username:- Tatsat123
 password:- ab12cd34
