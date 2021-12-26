@@ -55,6 +55,18 @@ def PrescriptionCreateView(request):
 
 
 @login_required(login_url='/login/')
+def OutstandingCreate(request):
+    if request.method == 'POST':
+        form = PaymentForm(request.POST)
+        if form.is_valid():
+            payment = form.save(commit=False)
+            payment.save()
+            return redirect('appointment:hr_accounting')
+    else:
+        form = PaymentForm()
+    return render(request, 'appointment/outstanding.html', {'form': form})
+
+@login_required(login_url='/login/')
 def AppointmentCreateView(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
@@ -109,6 +121,3 @@ def pateintpayments(request):
             "payment_me" : Payment.objects.filter(patient=request.user),
         }
         return render(request, 'appointment/payment_invoice.html', context=context)
-
-
-    

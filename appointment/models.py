@@ -11,7 +11,7 @@ class Appointment(models.Model):
     doctor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='doctor')
 
     def __str__(self):
-        return "Patient - {} Doc- {} At {} {}".format(self.patient, self.doctor, self.date, self.time)
+        return "Patient - {} Doc- {} At {} {} {} {}".format(self.patient, self.doctor, self.date, self.time,self.status,self.id)
 
 
 class Prescription(models.Model):

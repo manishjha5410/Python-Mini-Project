@@ -133,3 +133,11 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
 django_heroku.settings(locals())
+
+EMAIL_HOST = 'localhost'
+EMAIL_PORT = '1026'
+EMAIL_HOT_USER = ''
+EMAIL_HOT_PASSWORD = ''
+EMAIL_USE_TLS = False
+# EMAIL_USE_SSL = False
+# python -m smtpd -n -c DebuggingServer localhost:1026

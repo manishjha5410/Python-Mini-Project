@@ -3,8 +3,7 @@
 {% block content %}
 
 <section class="appointment">
-    <h1>Hello {{ user.username }}</h1>
-
+    <h1>Profile for {{ user.first_name }} {{ user.last_name }}</h1>
     <div class="container">
         <form method="POST">
             {% csrf_token %}
@@ -14,12 +13,38 @@
             </div>
             <div class="form-group">
                 <label class="control-label" for="id_phone">Phone</label>
-                <input type="text" name="phone" maxlength="17" class="form-control" placeholder="Phone" title="" id="id_phone">
+                <input type="text" name="phone" value={{dup.phone}} maxlength="17" class="form-control" placeholder="Phone" title="" id="id_phone">
             </div>
             <div class="form-group">
                 <label class="control-label" for="id_email">Email</label>
-                <input type="email" value = {{ user.email }} name="email" maxlength="254" class="form-control" placeholder="Email" title="" id="id_email">
+                <input type="email" value = {{ dup.email }} name="email" maxlength="254" class="form-control" placeholder="Email" title="" id="id_email">
             </div>
+            {% if type == "user" %}
+                <div class="form-group">
+                    <div class="custom-file">
+                        <label class="control-label form-label" for="id_med_reps">Med reps</label>
+                        <input type="file" class="form-control" name="med_reps" id="id_med_reps" autocompleted="">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="id_case_paper">Case paper</label>
+                    <input type="number" name="case_paper" value={{dup.case_paper}} class="form-control" placeholder="Case paper" title="" id="id_case_paper">
+                </div>
+            {% endif %}
+            {% if type == "doctor" %}
+                <div class="form-group">
+                    <label class="control-label" for="id_salary">Salary</label>
+                    <input type="number" value = {{ dup.salary }} name="salary" class="form-control" placeholder="Salary" title="" id="id_salary">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="id_attendance">Attendance</label>
+                    <input type="number" name="attendance" value={{dup.attendance}} class="form-control" placeholder="Attendance" title="" id="id_case_paper">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="id_department">Department</label>
+                    <input type="text" name="department" value={{dup.department}} maxlength="50" class="form-control" placeholder="Department" title="" required="" id="id_department">
+                </div>
+            {% endif %}
             <div class="form-group">
                 <label class="control-label" for="id_gender_0">Gender</label>
                 <div id="id_gender_type">
@@ -45,16 +70,15 @@
             </div>
             <div class="form-group">
                 <label class="control-label" for="id_age">Age</label>
-                <input type="number" name="age" class="form-control" placeholder="Age" title="" id="id_age">
+                <input type="number" name="age" class="form-control" value={{ dup.age}} placeholder="Age" title="" id="id_age">
             </div>
             <div class="form-group">
                 <label class="control-label" for="id_address">Address</label>
-                <input type="text" name="address" maxlength="500" class="form-control" placeholder="Address" title="" id="id_address">
+                <input type="text" name="address" maxlength="500" value="{{dup.address}}" class="form-control" placeholder="Address" title="" id="id_address">
             </div>
             <div class="form-group">
                 <label class="control-label" for="id_blood_group">Blood group</label>
                 <select name="blood_group" class="form-select" aria-label="Select Blood group" title="" id="id_blood_group">
-                    <option value="" selected="">Select One</option>
                     <option value="O-">O-</option>
                     <option value="O+">O+</option>
                     <option value="A-">A-</option>
@@ -65,16 +89,15 @@
                     <option value="AB+">AB+</option>
                 </select>
             </div>
-            <div class="form-group">
-                <div class="custom-file">
-                    <label class="control-label form-label" for="id_med_reps">Med reps</label>
-                    <input type="file" class="form-control" name="med_reps" id="id_med_reps" autocompleted="">
+            {% if type == "doctor" %}
+                <div class="form-group">
+                    <label class="control-label" for="id_status">Status</label>
+                    <select name="status" class="form-select" aria-label="Select Blood group" title="" id="id_status">
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="id_case_paper">Case paper</label>
-                <input type="number" name="case_paper" class="form-control" placeholder="Case paper" title="" id="id_case_paper">
-            </div>
+            {% endif %}
             <input type="submit" value="Update" class="sgn--btn btn">
         </form>
     </div>

@@ -8,15 +8,13 @@
     <h1>Your Payments & Invoices</h1>
     <div class="container">
         <table class="table table-hover table-respes">
-            <thead> 
-                <th scope="col">Invoice</th>
+            <thead>
                 <th scope="col">Paid</th>
                 <th scope="col">Date</th>
                 <th scope="col">Outstanding</th>
             </thead>
             {% for obj in payment_me %}
             <tr>
-                <td data-label="Invoice"><a href="">Open Invoice</a></td>
                 <td data-label="Paid">{{ obj.paid }}</td>
                 <td data-label="Date">{{ obj.date }}</td>
                 <td data-label="Outstanding">{{ obj.outstanding }}</td>

@@ -29,4 +29,14 @@ class AppointmentForm(forms.ModelForm):
             self.fields['doctor'].queryset = User.objects.filter(user_type="D")
             self.fields["date"].label = "Date (YYYY-MM-DD)"
             self.fields["time"].label = "Time 24 hr (HH:MM)"
-        
+
+class PaymentForm(forms.ModelForm):
+    class Meta:
+        model = Payment
+        fields = '__all__'
+
+
+    def __init__(self, *args, **kwargs):
+        super(PaymentForm, self).__init__(*args, **kwargs)
+        if self.instance:
+            self.fields['patient'].queryset = User.objects.filter(user_type="P")

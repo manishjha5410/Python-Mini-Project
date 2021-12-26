@@ -11,7 +11,7 @@
         <div class="card-body">
             <h2 class="card-title" style="text-align: center;">Are you sure you want to delete {{ user.username }} profile?</h2>
             <form method="POST" style="display: flex;align-items: center;justify-content: space-evenly;margin-top: 2rem;">
-                <a href="{% url 'appointment:hr_dashboard %}" class="btn btn-warning">
+                <a href="{% url 'appointment:hr_dashboard' %}" class="btn btn-warning">
                     Cancel
                 </a>
                 {% csrf_token %}

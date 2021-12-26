@@ -31,12 +31,14 @@
                     <th scope="col">Date</th>
                     <th scope="col">Time</th>
                     <th scope="col">Patient Info</th>
+                    <th scope="col">Status</th>
                 </thead>
                 {% for obj in object_list %}
                 <tr>
                     <td data-label="Date">{{ obj.date }}</td>
                     <td data-label="Time">{{ obj.time }}</td>
                     <td data-label="Patient Info">{{ obj.patient }}</td>
+                    <td data-label="Status">{{ obj.status }}</td>
                 </tr>
                 {% endfor %}
             </table>

@@ -4,38 +4,36 @@
 
 {% block content %}
 <section class="accounting">
-    <h1>Individuals Outstandings</h1>
-    <div class="container" style="margin-bottom: 2rem">
-            <table class="table table-striped table-hover table-respes">
-            <thead>
-                <th scope="col">Patient</th>
-                <th scope="col">Outstanding</th>
-                <th scope="col">Paid</th>
-            </thead>
-            {% for obj in payment_ind %}
-            <tr>
-                <td data-label="Patient">{{ obj.patient }}</td>
-                <td data-label="Outstanding">{{ obj.outstanding }}</td>
-                <td data-label="Paid">{{ obj.paid }}</td>
-            </tr>
-            {% endfor %}
-        </table>
-    </div>
-    <h1>Consultings Outstandings</h1>
+    <h1>Outstandings</h1>
     <div class="container">
+        <a href="{% url 'appointment:outstanding-create' %}" class="btn btn-primary">
+            Create Outstandings
+        </a>
         <table class="table table-striped table-hover table-respes">
             <thead>
                 <th scope="col">Date</th>
                 <th scope="col">Patient Name</th>
                 <th scope="col">Paid</th>
+                <th scope="col">Type</th>
                 <th scope="col">Outstanding</th>
                 <th scope="col">Total</th>
             </thead>
+            {% for obj in payment_ind %}
+            <tr>
+                <td data-label="Date">{{ obj.date }}</td>
+                <td data-label="Patient Name">{{ obj.patient }}</td>
+                <td data-label="Paid">{{ obj.paid }}</td>
+                <td data-label="Type">Individual</td>
+                <td data-label="Outstanding">{{ obj.outstanding }}</td>
+                <td data-label="Total">{{ obj.total }}</td>
+            </tr>
+            {% endfor %}
             {% for obj in payment_cons %}
             <tr>
                 <td data-label="Date">{{ obj.date }}</td>
                 <td data-label="Patient Name">{{ obj.patient }}</td>
                 <td data-label="Paid">{{ obj.paid }}</td>
+                <td data-label="Type">Consulting</td>
                 <td data-label="Outstanding">{{ obj.outstanding }}</td>
                 <td data-label="Total">{{ obj.total }}</td>
             </tr>

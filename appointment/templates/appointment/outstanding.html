@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+<section class="appointment" style="margin-top: 3rem">
+    <h1>Create an Outstanding</h1>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input class="btn btn-primary pull-right" type="submit" value="Create" style="margin-bottom: 2rem"/>
+        </form>
+    </div>
+</section>
+{% endblock %}

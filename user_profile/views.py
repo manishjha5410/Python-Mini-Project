@@ -15,7 +15,6 @@ def CreateUserProfile(request):
         form = ProfileUpdateForm(request.POST)
         if form.is_valid():
             profile = form.save(commit=False)
-            # try:
             password = User.objects.make_random_password()
             username = profile.name.split()[0] + id_generator()
             user = User.objects.create(username=username, user_type="P")
@@ -24,10 +23,6 @@ def CreateUserProfile(request):
             profile.user = user
             profile.save()
             return redirect('appointment:r_dashboard')
-            print("Hello")
-            # except:
-            #     print("Hey")
-            #     redirect('appointment:r_dashboard')
     else:
         form = ProfileUpdateForm()
     return render(request, 'user_profile/profile_create.html', {'form': form})
@@ -44,7 +39,8 @@ def UpdatedUserProfile(request):
             return redirect('user_profile:profile')
     else:
         form = ProfileUpdateForm(instance=profile)
-    return render(request, 'user_profile/profile.html', {'form': form, 'user':user})
+    print(profile)
+    return render(request, 'user_profile/profile.html', {'type':'user','form': form, 'dup':profile,'user':user})
 
 
 @login_required(login_url='/login/')
@@ -72,7 +68,7 @@ def UpdatedDocProfilePk(request, pk):
             return redirect('appointment:hr_dashboard')
     else:
         form = DoctorProfileForm(instance=profile)
-    return render(request, 'user_profile/profile.html', {'form': form, 'user':user})
+    return render(request, 'user_profile/profile.html', {'type':'doctor','form': form, 'dup':profile,'user':user})
 
 
 @login_required(login_url='/login/')
