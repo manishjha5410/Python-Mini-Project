@@ -31,6 +31,8 @@
                 <th scope="col">Doctor</th>
                 <th scope="col">Patient</th>
                 <th scope="col">Status</th>
+                <th scope="col">Update</th>
+                <th scope="col">Remove</th>
             </thead>
             {% for obj in app_list %}
             <tr>
@@ -39,6 +41,8 @@
                 <td data-label="Doctor">{{ obj.doctor }}</td>
                 <td data-label="Patient">{{ obj.patient }}</td>
                 <td data-label="Status">{{ obj.status }}</td>
+                <td data-label="Update"><a href="{% url 'appointment:appointment-profile-pk' pk=obj.id %}"><button class="btn btn-info">Update</button></a></td>
+                <td data-label="Remove"><a href="{% url 'appointment:appointment-profile-delete' pk=obj.id %}"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
             {% endfor %}
         </table>

@@ -55,6 +55,24 @@ $(document).ready(function(){
   
   });
 
+window.onload = () => {
+
+  let destroy_toast = (elmn) => {
+    elmn.classList.remove("show");
+    elmn.classList.add("hide");
+  }
+
+  document.querySelectorAll("#tst-hid").forEach((item) => {
+
+    setTimeout(() => {
+      destroy_toast(item.parentNode.parentNode);
+    },4000)
+
+    item.addEventListener("click",(e)=>{
+      destroy_toast(e.target.parentNode.parentNode);
+    })
+  })
+}
 
 (function () {
   'use strict'

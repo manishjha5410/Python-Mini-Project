@@ -11,7 +11,7 @@ class Appointment(models.Model):
     doctor = models.ForeignKey(User, on_delete=models.CASCADE, related_name='doctor')
 
     def __str__(self):
-        return "Patient - {} Doc- {} At {} {} {} {}".format(self.patient, self.doctor, self.date, self.time,self.status,self.id)
+        return f"{self.id} {self.patient} {self.doctor} {self.date} {self.time} {self.status} {self.id}"
 
 
 class Prescription(models.Model):
@@ -34,7 +34,7 @@ PAYMENT_TYPES = [
 
 class Payment(models.Model):
     patient = models.ForeignKey(User, on_delete=models.CASCADE, related_name="patient_payments")
-    date = models.DateField(auto_now_add=True)
+    date = models.DateField()
     paid = models.IntegerField(null=True)
     outstanding = models.IntegerField(null=True)
     total = models.IntegerField(null=True)
@@ -44,4 +44,4 @@ class Payment(models.Model):
         ordering = ('-id',)
 
     def __str__(self):
-        return "Payment Patient-{} Amount-{}".format(self.patient, self.total)
+        return "Payment Patient-{} Amount-{}".format(self.patient, self.payment_type)

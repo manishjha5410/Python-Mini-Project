@@ -7,6 +7,7 @@ app_name = "user_profile"
 
 urlpatterns = [
     path("profile/", views.UpdatedUserProfile, name="profile"),
+    path("profile/d/", views.UpdatedDoctorProfile, name="profile_d"),
     path("profile/create/", views.CreateUserProfile, name="profile-create"),
     path("profile/<int:pk>/", views.UpdatedUserProfilePk, name="profile-pk"),
     path("profile/doc/<int:pk>/", views.UpdatedDocProfilePk, name="doc-profile-pk"),

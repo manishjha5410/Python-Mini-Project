@@ -66,7 +66,6 @@ thead th {
   .table-respes td::before {
     content: attr(data-label);
     float: left;
-    font-weight: bold;
     text-transform: uppercase;
   }
 

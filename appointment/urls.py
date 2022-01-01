@@ -17,4 +17,10 @@ urlpatterns = [
     path("hrdashboard/", views.hrdashboard, name="hr_dashboard"),
     path("hraccounting/", views.hraccounting, name="hr_accounting"),
     path("payments/", views.pateintpayments, name="pat_payments"),
+    path("appointment/<int:pk>/", views.UpdatedAppointmentPk, name="appointment-profile-pk"),
+    path("appointment/delete/<int:pk>", views.DeleteAppointmentPk, name="appointment-profile-delete"),
+    path("outstanding/<int:pk>/", views.UpdatedOutstandingPk, name="outstanding-profile-pk"),
+    path("outstanding/delete/<int:pk>", views.DeleteOutstandingPk, name="outstanding-profile-delete"),
+    path("prescriptions/<int:pk>/", views.UpdatedPrescriptionsPk, name="prescriptions-profile-pk"),
+    path("prescriptions/delete/<int:pk>", views.DeletePrescriptionsPk, name="prescriptions-profile-delete"),
 ]

@@ -1,19 +1,18 @@
 {% extends "base.html" %}
 {% load static %}
 {% block content %}
-<div class="alertss">
-    <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
-        <div class="toast-header">
-          <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#007aff"></rect></svg>
-          <strong class="me-auto">Bootstrap</strong>
-          <small>11 mins ago</small>
-          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" id="tst-hid"></button>
+
+{% if message != None %}
+    <div class="alertss">
+        <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body">
+                <i class="fad fa-check" id="suc-log"></i>
+                <span class="me-auto">Message sent successfully {{ message }}</span>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close" id="tst-hid" style="position: absolute; right: 20px;"></button>
+            </div>
         </div>
-        <div class="toast-body">
-          Hello, world! This is a toast message.
-        </div>
-      </div>
-</div>
+    </div>
+{% endif %}
 
 <section class="contact-us">
     <h1>contact us</h1>

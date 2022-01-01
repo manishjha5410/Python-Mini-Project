@@ -41,4 +41,4 @@ class UserProfile(models.Model):
         ordering = ('-id',)
 
     def __str__(self):
-        return f"{self.user} {self.email} {self.phone}"
+        return self.phone

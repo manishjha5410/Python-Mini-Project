@@ -40,3 +40,4 @@ class PaymentForm(forms.ModelForm):
         super(PaymentForm, self).__init__(*args, **kwargs)
         if self.instance:
             self.fields['patient'].queryset = User.objects.filter(user_type="P")
+            self.fields["date"].label = "Date (YYYY-MM-DD)"

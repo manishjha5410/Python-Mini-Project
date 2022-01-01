@@ -67,6 +67,29 @@ def OutstandingCreate(request):
     return render(request, 'appointment/outstanding.html', {'form': form})
 
 @login_required(login_url='/login/')
+def UpdatedOutstandingPk(request, pk):
+    payment = Payment.objects.get(id=pk)
+    if request.method == 'POST':
+        payment.paid = request.POST['paid']
+        payment.outstanding = request.POST['outstanding']
+        payment.total = request.POST['total']
+        payment.payment_type = request.POST['payment_type']
+        payment.save()
+        return redirect('appointment:hr_accounting')
+    else:
+        payment.newDate = str(payment.date)
+        return render(request, 'appointment/accounting_update.html', {'form': payment})
+
+@login_required(login_url='/login/')
+def DeleteOutstandingPk(request, pk):
+    payment = Payment.objects.get(id=pk)
+    if request.method == 'POST':
+        payment.delete()
+        return redirect('appointment:hr_accounting')
+    else:
+        return render(request, 'appointment/appointment_delete.html', {'form':payment})
+
+@login_required(login_url='/login/')
 def AppointmentCreateView(request):
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
@@ -78,6 +101,48 @@ def AppointmentCreateView(request):
         form = AppointmentForm()
     return render(request, 'appointment/appointment_create.html', {'form': form})
 
+@login_required(login_url='/login/')
+def UpdatedPrescriptionsPk(request,pk):
+    prescription = Prescription.objects.get(id=pk)
+    if request.method == 'POST':
+        prescription.symptoms = request.POST['symptoms']
+        prescription.prescription = request.POST['prescription']
+        prescription.save()
+        return redirect('appointment:doc-prescriptions')
+    else:
+        return render(request, 'appointment/prescription_update.html', {'form': prescription})
+
+@login_required(login_url='/login/')
+def DeletePrescriptionsPk(request,pk):
+    prescription = Prescription.objects.get(id=pk)
+    if request.method == 'POST':
+        prescription.delete()
+        return redirect('appointment:doc-prescriptions')
+    else:
+        return render(request, 'appointment/appointment_delete.html', {'form':prescription})
+
+@login_required(login_url='/login/')
+def UpdatedAppointmentPk(request, pk):
+    appointment = Appointment.objects.get(id=pk)
+    if request.method == 'POST':
+        appointment.status = request.POST['status']
+        appointment.date = request.POST['date']
+        appointment.time = request.POST['time']
+        appointment.save()
+        return redirect('appointment:r_dashboard')
+    else:
+        appointment.newDate = str(appointment.date)
+        appointment.newTime = str(appointment.time)[:5]
+        return render(request, 'appointment/appointment_update.html', {'form': appointment})
+
+@login_required(login_url='/login/')
+def DeleteAppointmentPk(request,pk):
+    appointment = Appointment.objects.get(id=pk)
+    if request.method == 'POST':
+        appointment.delete()
+        return redirect('appointment:r_dashboard')
+    else:
+        return render(request, 'appointment/appointment_delete.html', {'form':appointment})
 
 @login_required(login_url='/login/')
 def rdashboard(request):

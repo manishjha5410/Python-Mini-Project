@@ -17,6 +17,8 @@
                 <th scope="col">Type</th>
                 <th scope="col">Outstanding</th>
                 <th scope="col">Total</th>
+                <th scope="col">Update</th>
+                <th scope="col">Remove</th>
             </thead>
             {% for obj in payment_ind %}
             <tr>
@@ -26,6 +28,8 @@
                 <td data-label="Type">Individual</td>
                 <td data-label="Outstanding">{{ obj.outstanding }}</td>
                 <td data-label="Total">{{ obj.total }}</td>
+                <td data-label="Update"><a href="{% url 'appointment:outstanding-profile-pk' pk=obj.id %}"><button class="btn btn-info">Update</button></a></td>
+                <td data-label="Remove"><a href="{% url 'appointment:outstanding-profile-delete' pk=obj.id %}"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
             {% endfor %}
             {% for obj in payment_cons %}
@@ -36,6 +40,8 @@
                 <td data-label="Type">Consulting</td>
                 <td data-label="Outstanding">{{ obj.outstanding }}</td>
                 <td data-label="Total">{{ obj.total }}</td>
+                <td data-label="Update"><a href="{% url 'appointment:outstanding-profile-pk' pk=obj.id %}"><button class="btn btn-info">Update</button></a></td>
+                <td data-label="Remove"><a href="{% url 'appointment:outstanding-profile-delete' pk=obj.id %}"><button class="btn btn-danger">Delete</button></a></td>
             </tr>
             {% endfor %}
         </table>

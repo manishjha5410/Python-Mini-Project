@@ -33,6 +33,25 @@
   border: none;
 }
 
+.alertss{
+  position: absolute;
+  right: 10px;
+}
+
+#suc-log{
+  font-size: 1.2rem;
+  margin-right: 4px;
+  color: #0add0a;
+}
+
+.toast-body
+{
+  position: relative;
+  border-bottom: 5px solid #27b50b;
+  border-bottom-left-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+
 .form-control {
   font-size: 14px;
   box-shadow: none!important;

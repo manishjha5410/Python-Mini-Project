@@ -39,8 +39,20 @@ def UpdatedUserProfile(request):
             return redirect('user_profile:profile')
     else:
         form = ProfileUpdateForm(instance=profile)
-    print(profile)
     return render(request, 'user_profile/profile.html', {'type':'user','form': form, 'dup':profile,'user':user})
+
+@login_required(login_url='/login/')
+def UpdatedDoctorProfile(request):
+    user = request.user
+    profile = UserProfile.objects.get(user=user)
+    if request.method == 'POST':
+        form = DoctorProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('user_profile:profile_d')
+    else:
+        form = DoctorProfileForm(instance=profile)
+    return render(request, 'user_profile/profile_d.html', {'type':'doctor','form': form, 'dup':profile,'user':user})
 
 
 @login_required(login_url='/login/')

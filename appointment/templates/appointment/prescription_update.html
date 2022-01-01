@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+
+
+{% block content %}
+
+<section class="create-prescrip">
+    <h1>Hello {{ user.username }}</h1>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="control-label" for="id_patient">Patient</label>
+                <input type="text" name="patient" value="{{ form.patient }}" class="form-control" title="" required="" id="id_patient"  readonly="readonly"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_symptoms">Symptoms</label>
+                <input type="text" name="symptoms" value="{{ form.symptoms }}" maxlength="200" class="form-control" placeholder="Symptoms" title="" required="" id="id_symptoms">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_prescription">Prescription</label>
+                <textarea name="prescription" cols="40" rows="10" class="form-control" placeholder="Prescription" title="" required="" id="id_prescription" spellcheck="false">{{ form.prescription }}</textarea>
+            </div>
+            <input style="margin-bottom: 3rem" class="btn btn-primary pull-right" type="submit" value="Update">
+        </form>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block content %}
+<section class="appointment" style="margin-top: 3rem">
+    <h1>Update an Outstanding</h1>
+    <div class="container">
+        <form method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label class="control-label" for="id_patient">Patient</label>
+                <input type="text" name="patient" value="{{ form.patient }}" class="form-control" title="" required="" id="id_patient" readonly="readonly"/>
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_date">Date (YYYY-MM-DD)</label>
+                <input type="text" name="date" class="form-control" value="{{ form.newDate }}" placeholder="Date (YYYY-MM-DD)" title="" required="" id="id_date" readonly="readonly">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_paid">Paid</label>
+                <input type="number" name="paid" class="form-control" placeholder="Paid" title="" value="{{ form.paid }}" required="" id="id_paid">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_outstanding">Outstanding</label>
+                <input type="number" name="outstanding" class="form-control" placeholder="outstanding" title="" required="" id="id_outstanding" value="{{ form.outstanding }}" />
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_total">Total</label>
+                <input type="number" name="total" class="form-control" placeholder="Total" title="" required="" id="id_total" value="{{ form.total }}">
+            </div>
+            <div class="form-group">
+                <label class="control-label" for="id_payment_type">Payment type</label>
+                <select name="payment_type" class="form-control" title="" id="id_payment_type">
+                    {% if form.payment_type == 'I' %}
+                        <option value="I" selected>Individual</option>
+                        <option value="C">Consulting</option>
+                    {% else %}
+                        <option value="I">Individual</option>
+                        <option value="C" selected>Consulting</option>
+                    {% endif %}
+                </select>
+            </div>
+            <input class="btn btn-primary pull-right" type="submit" value="Update" style="margin-bottom: 2rem">
+        </form>
+    </div>
+</section>
+{% endblock %}
