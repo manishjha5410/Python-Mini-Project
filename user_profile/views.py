@@ -39,6 +39,7 @@ def UpdatedUserProfile(request):
             return redirect('user_profile:profile')
     else:
         form = ProfileUpdateForm(instance=profile)
+    print(profile)
     return render(request, 'user_profile/profile.html', {'type':'user','form': form, 'dup':profile,'user':user})
 
 @login_required(login_url='/login/')
