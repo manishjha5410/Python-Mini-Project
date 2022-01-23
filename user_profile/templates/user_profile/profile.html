@@ -5,8 +5,20 @@
 <section class="appointment">
     <h1>Profile for {{ user.first_name }} {{ user.last_name }}</h1>
     <div class="container">
-        <form method="POST">
+        <form method="POST" enctype="multipart/form-data">
             {% csrf_token %}
+            <div class="profile-pic">
+                <label class="-label" for="id_med_reps">
+                    <span style="margin-top: 8px;" class="fal fa-camera-retro"></span>
+                    <span>Change Image</span>
+                </label>
+                <input type="file" class="form-control" onchange="loadFile(event)" id="id_med_reps" name="med_reps" accept="image/*"/>
+                {% if dup.med_reps == 'None' %}
+                    <img src="/media/images/default.png" id="output" width="200" />
+                {% else %}
+                    <img src="{{ dup.med_reps.url }}" id="output" width="200" />
+                {% endif %}
+            </div>
             <div class="form-group">
                 <label class="control-label" for="id_name">Name</label>
                 <input type="text" name="name" value="{{ user.first_name }} {{ user.last_name }}" maxlength="50" class="form-control" placeholder="Name" title="" required="" id="id_name">
@@ -20,12 +32,6 @@
                 <input type="email" value = {{ dup.email }} name="email" maxlength="254" class="form-control" placeholder="Email" title="" id="id_email">
             </div>
             {% if type == "user" %}
-                <div class="form-group">
-                    <div class="custom-file">
-                        <label class="control-label form-label" for="id_med_reps">Med reps</label>
-                        <input type="file" class="form-control" name="med_reps" id="id_med_reps" autocompleted="">
-                    </div>
-                </div>
                 <div class="form-group">
                     <label class="control-label" for="id_case_paper">Case paper</label>
                     <input type="number" name="case_paper" value={{dup.case_paper}} class="form-control" placeholder="Case paper" title="" id="id_case_paper">
@@ -88,6 +94,7 @@
                 <label class="control-label" for="id_address">Address</label>
                 <input type="text" name="address" maxlength="500" value="{{dup.address}}" class="form-control" placeholder="Address" title="" id="id_address">
             </div>
+            {% if type == "user" %}
             <div class="form-group">
                 <label class="control-label" for="id_blood_group">Blood group</label>
                 <select name="blood_group" class="form-select" aria-label="Select Blood group" title="" id="id_blood_group">
@@ -166,6 +173,7 @@
                     {% endif %}
                 </select>
             </div>
+            {% endif %}
             {% if type == "doctor" %}
                 <div class="form-group">
                     <label class="control-label" for="id_status">Status</label>

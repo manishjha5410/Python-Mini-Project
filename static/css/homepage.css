@@ -537,6 +537,7 @@ header{
 }
 
 footer{
+  margin-top: 6rem;
   bottom: 0;
   left: 0;
   right: 0;
@@ -649,4 +650,96 @@ footer{
   .depart_ment_tab .nav li a{
     margin-bottom: 0;
   }
+}
+
+.profile-pic {
+  color: transparent;
+  display: flex;
+  width: fit-content;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+  z-index: 0;
+  transition: all .5s ease;
+  -webkit-transition: all .5s ease;
+  -moz-transition: all .5s ease;
+  -ms-transition: all .5s ease;
+  -o-transition: all .5s ease;
+}
+
+.profile-pic span{
+  display: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.profile-pic input {
+  display: none;
+}
+
+.profile-pic img {
+  position: absolute;
+  object-fit: cover;
+  width: 165px;
+  height: 165px;
+  box-shadow: 0 0 50px #ccc;
+  border-radius: 100px;
+  z-index: 0;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+  transition: all 0.5s ease;
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -ms-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
+}
+
+.profile-pic .-label {
+  cursor: pointer;
+  height: 165px;
+  width: 165px;
+  margin-bottom: 0 !important;
+}
+
+.profile-pic:hover img {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+}
+
+.profile-pic:hover span{
+  display: inherit;
+}
+
+
+.profile-pic:hover .-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  color: #fafafa;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 100px;
+  margin-bottom: 0;
+  -webkit-transition: background-color 0.2s ease-in-out;
+  -moz-transition: background-color 0.2s ease-in-out;
+  -ms-transition: background-color 0.2s ease-in-out;
+  -o-transition: background-color 0.2s ease-in-out;
+  -webkit-border-radius: 100px;
+  -moz-border-radius: 100px;
+  -ms-border-radius: 100px;
+  -o-border-radius: 100px;
+}
+
+.profile-pic span {
+  padding: 0.2em;
+  height: 2em;
+}
+
+.navbar-toggler{
+  box-shadow: none !important;
 }

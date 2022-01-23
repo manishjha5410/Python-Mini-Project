@@ -4,6 +4,7 @@
 
 .accounting h1 {
   text-align: center;
+  margin-top: 100px !important;
   text-transform: capitalize;
 }
 

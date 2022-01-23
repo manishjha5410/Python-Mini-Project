@@ -2,6 +2,7 @@ from django.db import models
 from django.core.validators import RegexValidator
 from django.contrib.auth import get_user_model
 User = get_user_model()
+import os
 
 GENDER_CHOICES = [
     ('M', 'Male'),
@@ -30,7 +31,7 @@ class UserProfile(models.Model):
     age = models.IntegerField(blank=True, null=True)
     address = models.CharField(max_length=500, blank=True)
     blood_group = models.CharField(choices=BLOOD_GROUPS, max_length=3, blank=True)
-    med_reps = models.FileField(upload_to='profile/med_reps', blank=True)
+    med_reps = models.ImageField(upload_to='images', blank=True)
     case_paper = models.IntegerField(blank=True, null=True)
     department = models.CharField(max_length=50, null=True, blank=True)
     salary = models.IntegerField(null=True, blank=True)

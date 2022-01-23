@@ -7,6 +7,18 @@
     <div class="container">
         <form method="POST">
             {% csrf_token %}
+            <div class="profile-pic">
+                <label class="-label" for="id_med_reps">
+                    <span style="margin-top: 8px;" class="fal fa-camera-retro"></span>
+                    <span>Change Image</span>
+                </label>
+                <input type="file" class="form-control" onchange="loadFile(event)" id="id_med_reps" name="med_reps" accept="image/*"/>
+                {% if dup.med_reps is not defined  %}
+                    <img src="/media/images/default.png" id="output" width="200" />
+                {% else %}
+                    <img src="{{ dup.med_reps.url }}" id="output" width="200" />
+                {% endif %}
+            </div>
             <div class="form-group">
                 <label class="control-label" for="id_name">Name</label>
                 <input type="text" name="name" value="{{ user.first_name }} {{ user.last_name }}" maxlength="50" class="form-control" placeholder="Name" title="" required="" id="id_name">

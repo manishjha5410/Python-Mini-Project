@@ -13,8 +13,4 @@ class DoctorProfileForm(forms.ModelForm):
     gender = forms.ChoiceField(choices=GENDER_CHOICES, required=False, widget=forms.RadioSelect)
     class Meta:
         model = UserProfile
-        fields = ('name', 'phone', 'email', 'gender', 'age', 'address', 'department', 'attendance', 'salary', 'status')
-        
-
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
+        fields = ('name', 'phone', 'email', 'gender', 'age', 'address', 'department', 'attendance','med_reps', 'salary', 'status')

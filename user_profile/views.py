@@ -33,13 +33,20 @@ def UpdatedUserProfile(request):
     user = request.user
     profile = UserProfile.objects.get(user=user)
     if request.method == 'POST':
-        form = ProfileUpdateForm(request.POST, instance=profile)
-        if form.is_valid():
-            form.save()
-            return redirect('user_profile:profile')
+        profile.name = request.POST['name']
+        profile.phone = request.POST['phone']
+        profile.email = request.POST['email']
+        profile.gender = request.POST['gender']
+        profile.age = request.POST['age']
+        profile.address = request.POST['address']
+        profile.blood_group = request.POST['blood_group']
+        if 'med_reps' in request.FILES:
+            profile.med_reps = request.FILES['med_reps']
+        profile.case_paper = request.POST['case_paper']
+        profile.save()
+        return redirect('user_profile:profile')
     else:
         form = ProfileUpdateForm(instance=profile)
-    print(profile)
     return render(request, 'user_profile/profile.html', {'type':'user','form': form, 'dup':profile,'user':user})
 
 @login_required(login_url='/login/')
@@ -47,10 +54,18 @@ def UpdatedDoctorProfile(request):
     user = request.user
     profile = UserProfile.objects.get(user=user)
     if request.method == 'POST':
-        form = DoctorProfileForm(request.POST, instance=profile)
-        if form.is_valid():
-            form.save()
-            return redirect('user_profile:profile_d')
+        profile.name = request.POST['name']
+        profile.phone = request.POST['phone']
+        profile.email = request.POST['email']
+        profile.gender = request.POST['gender']
+        profile.age = request.POST['age']
+        profile.address = request.POST['address']
+        if 'med_reps' in request.FILES:
+            profile.med_reps = request.FILES['med_reps']
+        profile.salary = request.POST['salary']
+        profile.attendance = request.POST['attendance']
+        profile.status = request.POST['status']
+        return redirect('user_profile:profile_d')
     else:
         form = DoctorProfileForm(instance=profile)
     return render(request, 'user_profile/profile_d.html', {'type':'doctor','form': form, 'dup':profile,'user':user})

@@ -30,10 +30,6 @@ DEBUG = True
 ALLOWED_HOSTS = ['young-woodland-27000','127.0.0.1']
 
 
-# Application definition
-# [04/12 12:34] Manish jha manishjha5410:- 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
-
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -130,6 +126,9 @@ LOGIN_REDIRECT_URL = "account:home"
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR,]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 
 django_heroku.settings(locals())
